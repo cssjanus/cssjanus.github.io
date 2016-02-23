@@ -1,0 +1,189 @@
+﻿<html>
+<head>
+	<!--<link rel="stylesheet" type="text/css" href="demopage.css">-->
+	<style id="css">
+		body {
+			writing-mode: lr-tb;
+			-o-writing-mode: horizontal-tb;
+			-moz-writing-mode: horizontal-tb;
+			-webkit-writing-mode: horizontal-tb;
+			writing-mode: horizontal-tb;
+			direction: ltr;
+		}
+
+		h2 {
+			border-bottom: 2px dotted #333333;
+		}
+
+		ul {
+			list-style-image: url( "Arrow-lr-inline.png" );
+		}
+
+		ol {
+			list-style-image: none;
+		}
+
+		ol li {
+			padding: 1px;
+			margin: 1px;
+		}
+
+		.spaces {
+			padding: 1px 2px 3px;
+		}
+
+		.padding {
+			padding: 4px 0.6em 2px 16px;
+			border: 1px green dotted;
+		}
+
+		.margin {
+			margin: 0 10px;
+			margin-left: 20px;
+			border: rgba( 128, 128, 128, 1 ) 1px solid;
+			border-width: 0 1px;
+		}
+
+		.border {
+			border: 1px solid black;
+			border-color: red rgb( 0, 255, 0 ) #0000FF hsl( 0, 0%, 0% );
+			border-width: 1px 2px 3px;
+		}
+
+		.radius {
+			padding: 0.3em;
+			border: 1px solid #CCC;
+			border-radius: 4px 16px / 2px 6px 10px;
+		}
+
+		.border-image {
+
+		}
+
+		.shadows {
+			box-shadow: 1px 1px 2px red, 3px 3px 1px -1px #C00, 0 0 1px orange inset;
+		}
+
+		.text-shadow {
+			text-shadow: #666 2px 2px, #6FF -6px -2px 1px;
+		}
+
+		.posleft {
+			position: relative;
+			left: 6px;
+		}
+		.postop {
+			position: relative;
+			top: 6px;
+		}
+
+		.float {
+			float: right;
+		}
+
+		.resize-l {
+			cursor: w-resize;
+		}
+
+		.resize-v {
+			cursor: ns-resize;
+		}
+
+		.resize-r {
+			cursor: e-resize;
+		}
+
+		.resize-d {
+			cursor: nesw-resize;
+		}
+
+		.resize-row {
+			cursor: row-resize;
+		}
+
+		.resize-column {
+			cursor: col-resize;
+		}
+		/* @noflip */
+		form {
+			writing-mode: lr-tb;
+			-o-writing-mode: horizontal-tb;
+			-moz-writing-mode: horizontal-tb;
+			-webkit-writing-mode: horizontal-tb;
+			writing-mode: horizontal-tb;
+			direction: ltr;
+			position: absolute;
+			bottom: 0;
+			left: 40%;
+		}
+	</style>
+	<script src="./lib/es5-shim.js"></script>
+	<script>exports = {}; function require() { return exports; }</script>
+	<script src="./node_modules/cssjanus/src/cssjanus.js"></script>
+</head>
+<body>
+	<div>
+		<h2>
+			CSSJanus Demo
+		</h2>
+		<ul>
+			<li>Fully supports:
+				<ol>
+					<li class="spaces">
+						All types of <span class="padding">padding</span>, <span 
+
+class="margin">margins</span>, and <span class="border">borders</span>, including <span class="radius">border-radii</span> 
+
+and <span class="border-image">border-images</span>
+					</li>
+					<li class="shadows">
+						Box shadows, <span class="text-shadow">text-shadows</span>
+					</li>
+					<li>
+					Positioning (<span class="posleft">left</span>, <span 
+
+class="postop">top</span>, etc), and <span class="float">floating elements</span>
+					</li>
+					<li>
+					Cursors (<span class="resize-l">r</span><span class="resize-
+
+v">esiz</span><span class="resize-r">e</span>, including <span class="resize-d">diagonals</span>, <span class="resize-
+
+row">rows</span>, and <span class="resize-column">columns</span>)
+					</li>
+					<li>
+						Background-images, including URL flips, and positioning.
+					</li>
+				</ol>
+			</li>
+		</ul>
+	</div>
+	<form>
+		<label><input type="radio" name="dir" value="lr-tb" checked>ltr</label>
+		<label><input type="radio" name="dir" value="rl-tb">rtl</label>
+		<label><input type="radio" name="dir" value="tb-lr">tb-lr</label>
+		<label><input type="radio" name="dir" value="tb-rl">tb-rl</label>
+	</form>	<script>
+		( function () {
+			var cssjanus = require(),
+				inputs = document.getElementsByTagName( 'input' ),
+				cssElem = document.getElementById( 'css' ),
+				css = cssElem.firstChild.nodeValue;
+			for ( var i = 0; i < inputs.length; i++ ) {
+				inputs[ i ].onclick = function () {
+					var value = this.value;
+					cssElem.firstChild.nodeValue = 
+						cssjanus.transform(
+							css,
+							true,
+							true,
+							"lr-tb",
+							value
+						);
+				}
+			}
+		} )();
+	</script>
+		
+</body>
+</html>
