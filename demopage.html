@@ -1,6 +1,5 @@
 ﻿<html>
 <head>
-	<!--<link rel="stylesheet" type="text/css" href="demopage.css">-->
 	<style id="css">
 		body {
 			writing-mode: lr-tb;
@@ -9,23 +8,102 @@
 			-webkit-writing-mode: horizontal-tb;
 			writing-mode: horizontal-tb;
 			direction: ltr;
+			padding: 10px;
+		}
+		
+		table {
+			border-spacing: 0;
+			width: 80%;
+			margin: auto;
 		}
 
+		td {
+			padding: 0;
+		}
+		
+		/* Direction arrows */
+		.inline-arrow-container {
+			white-space: nowrap; 
+			margin: auto;
+			line-height: 0;
+		}
+
+		.inline-arrow-body { 
+			display: inline-block; 
+			border-bottom: 12px red solid; 
+			/*vertical-align: top; */
+			float: left;
+			width: 80%; 
+			height: 19px; 
+			margin-left: 19px; 
+			padding: 0 10px;
+			line-height: 19px;
+		}
+
+		.inline-arrow-head {
+			border: 25px solid transparent; 
+			border-left-color: red; 
+			display: inline-block;
+		}
+
+		.block-arrow-container {
+			float: left; 
+			margin-top: -19px;
+		}
+
+		.block-arrow-body {
+			border-left: 12px green solid; 
+			margin-left: 19px; 
+			height: 80%;
+			padding: 20px 5px;
+		}
+
+		.block-arrow-head {
+			display: inline-block; 
+			border: 25px solid transparent; 
+			border-top-color: green;
+		}
+		
+		/* Upper area */
 		h2 {
 			border-bottom: 2px dotted #333333;
 		}
+		
+		.p-container {
+			padding: 0 20%;
+		}
+		
+		h3 {
+			border-bottom: 1px #AAA dashed;
+		}
+		
+		p {
+			text-indent: 2em;
+			unicode-bidi: bidi-override;
+			text-align: left;
+		}
+		
+		.p-float {
+			float: right;
+			padding: 1em 5px;
+			border: 1px solid #AAA;
+			border-bottom-left-radius: 4px;
+			border-color: transparent rgba( 0, 0, 0, 0 ) #AAA #AAA;
+			margin: 0 0 1px 15px;
+		}
 
-		ul {
+		/* The list */
+		ul.outer {
 			list-style-image: url( "Arrow-lr-inline.png" );
 		}
 
-		ol {
+		ul.inner {
 			list-style-image: none;
 		}
 
-		ol li {
-			padding: 1px;
-			margin: 1px;
+		ul.inner li {
+			padding: 5px;
+			margin: 5px 0;
 		}
 
 		.spaces {
@@ -55,9 +133,55 @@
 			border: 1px solid #CCC;
 			border-radius: 4px 16px / 2px 6px 10px;
 		}
-
-		.border-image {
-
+		
+		.space-after, .space-before, .space-both {
+			border: 1px dotted #AAA;
+			display: inline-block;
+		}
+		
+		.space-after {
+			padding-right: 1em;
+			margin-right: 1em;
+		}
+		
+		.space-before {
+			padding: 0 0 0 1em;
+			margin: 0 0 0 1em;
+		}
+		
+		.space-both {
+			padding: 0 1em 0;
+			margin: 0 1em 0;
+		}
+		
+		.border-styles {
+			padding-right: 4px;
+			border-right: 4px solid red;
+			border-radius: 0 10px 10px 0 / 0 6px 6px 0;
+		}
+		
+		.border-images {
+			border: solid;
+			border-width: 28px 10px 10px 14px;
+			border-image: url(borderimage-lr-tb.png ) 16 10 10 28 / 28px 10px 10px 14px round stretch;
+			line-height: 28px;
+			padding: 4px 8px;
+			display: inline-block;
+		}
+		
+		.border-images-inline-start {
+			border: 1px dashed;
+			border-left: 4px solid #080;
+		}
+		
+		.border-images-block-start {
+			border: 1px dashed;
+			border-top: 4px solid #880;
+		}
+		
+		.border-images-block-end {
+			border: 1px dashed;
+			border-bottom: 4px solid #008;
 		}
 
 		.shadows {
@@ -67,6 +191,26 @@
 		.text-shadow {
 			text-shadow: #666 2px 2px, #6FF -6px -2px 1px;
 		}
+		
+		.text-shadows {
+			text-shadow: #FAA -20px -4px 2px, #AAF 20px 4px 2px;
+		}
+		
+		.box-shadows {
+			box-shadow: 5px 0 2px #0F0 inset;
+		}
+		
+		.posholder {
+			line-height: 28px;
+			unicode-bidi: bidi-override;
+		}
+		
+		.posbottom, .postop, .posleft {
+			position: relative;
+			border: 1px solid #000;
+			padding: 4px;
+			margin: 1px;
+		}
 
 		.posleft {
 			position: relative;
@@ -75,6 +219,22 @@
 		.postop {
 			position: relative;
 			top: 6px;
+		}
+		
+		.posbottom {
+			position: relative;
+			top: -6px;
+		}
+		
+		.posbase {
+			border: 1px solid #000;
+			padding: 2px;
+		}
+		
+		.floatpointer {
+			display: inline-block;
+			padding-right: 20px;
+			background: url( "Arrow-lr-inline.png" ) no-repeat 100% 50%;
 		}
 
 		.float {
@@ -93,6 +253,10 @@
 			cursor: e-resize;
 		}
 
+		.resize-rd {
+			cursor: se-resize;
+		}
+
 		.resize-d {
 			cursor: nesw-resize;
 		}
@@ -104,6 +268,23 @@
 		.resize-column {
 			cursor: col-resize;
 		}
+		
+		ul.inner .inline-start-background {
+			background-image: url( "Arrow-lr-inline.png" );
+			background-repeat: no-repeat;
+			background-position: 0% 50%;
+			padding-left: 20px;
+		}
+		
+		ul.inner .block-after-background {
+			background: url( "Arrow-lr-inline.png" ) repeat no-repeat bottom;
+			padding-bottom: 20px;
+		}
+		
+		.linerule {
+			width: 100%;
+		}
+		
 		/* @noflip */
 		form {
 			writing-mode: lr-tb;
@@ -112,9 +293,13 @@
 			-webkit-writing-mode: horizontal-tb;
 			writing-mode: horizontal-tb;
 			direction: ltr;
-			position: absolute;
-			bottom: 0;
+			position: fixed;
+			top: 0;
 			left: 40%;
+			padding: 5px;
+			border: 1px solid #AAA;
+			border-top-width: 0;
+			background-color: #FFFFFF;
 		}
 	</style>
 	<script src="./lib/es5-shim.js"></script>
@@ -126,37 +311,116 @@
 		<h2>
 			CSSJanus Demo
 		</h2>
-		<ul>
-			<li>Fully supports:
-				<ol>
-					<li class="spaces">
-						All types of <span class="padding">padding</span>, <span 
-
-class="margin">margins</span>, and <span class="border">borders</span>, including <span class="radius">border-radii</span> 
-
-and <span class="border-image">border-images</span>
-					</li>
-					<li class="shadows">
-						Box shadows, <span class="text-shadow">text-shadows</span>
-					</li>
-					<li>
-					Positioning (<span class="posleft">left</span>, <span 
-
-class="postop">top</span>, etc), and <span class="float">floating elements</span>
-					</li>
-					<li>
-					Cursors (<span class="resize-l">r</span><span class="resize-
-
-v">esiz</span><span class="resize-r">e</span>, including <span class="resize-d">diagonals</span>, <span class="resize-
-
-row">rows</span>, and <span class="resize-column">columns</span>)
-					</li>
-					<li>
-						Background-images, including URL flips, and positioning.
-					</li>
-				</ol>
-			</li>
-		</ul>
+		<div class="inline-arrow-container">
+			<div class="inline-arrow-body">
+				Inline direction
+			</div><div class="inline-arrow-head">
+			
+			</div></div>
+		<div class="block-arrow-container">
+			<div class="block-arrow-body">
+				Block<br />direction
+			</div><div class="block-arrow-head">
+			
+			</div>
+		</div>
+		<table>
+			<tbody>
+				<tr><td><bdo>
+					<div class="p-container">
+						<h3>
+							Header with border at the block-end
+						</h3>
+						<div class="p-float">
+							Floating element. 
+						</div>
+						<p class="paragraph">
+							This paragraph is in a container that has padding on each side, using the two-value ("padding: 0 20%;") syntax. When rotated, the values are flipped, so that the padding is on the top and bottom. A floating box at the far end of the box has borders on two sides (using border-color four-value), and a rounded border on the one visible corner. It also has a margin on two sides, with different units. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</div>
+				
+					<ul class="outer">
+						<li>CSSJanus fully supports:
+							<ul class="inner">
+								<li class="spaces">
+									All types of <span class="padding">padding</span>, <span class="margin">margins</span>, and <span class="border">borders</span>, including <span class="radius">border-radii</span> and border-images.
+									<ul>
+										<li>
+											<span class="space-after">This span has both padding and margin after the text, using margin-[direction]/padding-[direction] properties.</span> When flipping from ltr to rtl, padding-right becomes padding-left. For tb-lr, it becomes padding-bottom.
+										</li>
+										<li>
+											Lorem ipsum. <span class="space-before">This span has both padding and margin before the text, using the four-value syntax.</span> (E.g. padding: 0 0 0 1em; )
+										</li>
+										<li>
+											Lorem ipsum. <span class="space-both">This span has both padding and margin on both sides of the text, using the three-value syntax.</span> When rotated, this gets converted to four-value syntax.
+										</li>
+										<li>
+											<span class="border-styles">This span has a red border after the text, with rounded corners.</span>
+										</li>
+										<li>
+											<span class="border-images">This span has a thicker border <span class="border-images-block-start">closer to the preceding line</span>, a thinner border to the <span class="border-images-inline-start">inline-start direction</span>, and repeating text at the <span class="border-images-block-end">border closer to the following line</span>. </span>
+										</li>
+									</ul>
+								</li>
+								<li class="shadows">
+									Box shadows, <span class="text-shadow">text-shadows</span>, including inset positioning and overlapping shadows.
+									<ul>
+										<li class="text-shadows">
+											This text has a red shadow before the text slightly closer to the previous line, and a blue shadow after the text and slightly closer to the following line.
+										</li>
+										<li class="box-shadows">
+											This box has an inset shadow, visible before the text.
+										</li>
+									</ul>
+								</li>
+								<li>
+									Positioning (<span class="posleft">left</span>, <span class="postop">top</span>, etc), and <span class="float">floating elements.</span>
+									<ul>
+										<li class="posholder">
+											The style position: relative; can be used to move text <span class="posbase"></span><span class="postop">toward the following line</span><span class="posbase"></span>, 
+										</li>
+										<li class="posholder">
+											<span class="posbase"></span><span class="posbottom">toward the previous line</span><span class="posbase"></span>, 
+										</li>
+										<li class="posholder">
+											or <span class="posbase"></span><span class="posleft">forward in the direction of the text</span><span class="posbase"></span>.
+										</li>
+										<li>
+											<div class="p-float">This element floats to the far side of the list.</div><span class="floatpointer">(Lorem ipsum ... )</span>
+										</li>
+									</ul>
+								</li>
+								<li>
+								Cursors (<span class="resize-l">r</span><span class="resize-v">esiz</span><span class="resize-r">e</span>, including <span class="resize-d">diagonals</span>, <span class="resize-row">rows</span>, and <span class="resize-column">columns</span>)
+									<ul>
+										<li class="resize-r">
+											The cursor when hovering over this text points towards (or is parallel to, depending on the browser) the text direction.
+										</li>
+										<li class="resize-v">
+											The cursor when hovering over this text is perpendicular to the text direction.
+										</li>
+										<li class="resize-rd">
+											The cursor when hovering over this text points to the diagonal between the block direction and inline direction.
+										</li>
+									</ul>
+								</li>
+								<li>
+									Background-images, including URL flips, and positioning.
+									<ul>
+										<li class="inline-start-background">
+	This element has a background arrow pointing toward the text, positioned at the text beginning.
+										</li>
+										<li class="block-after-background">
+	This element has repeated background arrows on a line after the the text's block, pointing toward the inline direction.
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul></bdo>
+				</td></tr>
+			</tbody>
+		</table>
 	</div>
 	<form>
 		<label><input type="radio" name="dir" value="lr-tb" checked>ltr</label>
@@ -180,7 +444,7 @@ row">rows</span>, and <span class="resize-column">columns</span>)
 							"lr-tb",
 							value
 						);
-				}
+				};
 			}
 		} )();
 	</script>
