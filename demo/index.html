@@ -170,7 +170,8 @@
 		.border-images {
 			border: solid;
 			border-width: 28px 10px 10px 14px;
-			border-image: url(borderimage-lr-tb.png) 16 10 10 28 / 28px 10px 10px 14px round stretch;
+			/* @noflip */
+			border-image: url(borderimage-ltr.png) 16 10 10 28 / 28px 10px 10px 14px round stretch;
 			line-height: 28px;
 			padding: 4px 8px;
 			display: inline-block;
@@ -241,7 +242,7 @@
 		.floatpointer {
 			display: inline-block;
 			padding-right: 20px;
-			background: url(Arrow-lr-inline.png) no-repeat 100% 50%;
+			background: url(Arrow-ltr-inline.png) no-repeat 100% 50%;
 		}
 
 		.float {
@@ -277,14 +278,14 @@
 		}
 
 		ul.inner .inline-start-background {
-			background-image: url(Arrow-lr-inline.png);
+			background-image: url(Arrow-ltr-inline.png);
 			background-repeat: no-repeat;
 			background-position: 0% 50%;
 			padding-left: 20px;
 		}
 
 		ul.inner .block-after-background {
-			background: url(Arrow-lr-inline.png) repeat no-repeat bottom;
+			background: url(Arrow-ltr-inline.png) repeat no-repeat bottom;
 			padding-bottom: 20px;
 		}
 
