@@ -1,6 +1,4 @@
 {
-  "name": "cssjanus-site",
-  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "cssjanus": "^1.1.3"
