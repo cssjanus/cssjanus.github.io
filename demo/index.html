@@ -179,6 +179,39 @@
 		box-shadow: 1px 1px 2px red, 3px 3px 1px -1px #C00, 0 0 1px orange inset;
 	}
 
+	/* Transform */
+
+	.transformed {
+		transform: translate( 25%, 50% );
+		width: 14em;
+		height: 8em;
+	}
+	.untransformed {
+		width: 14em;
+		height: 8em;
+		position: relative;
+	}
+	.untransformed::before {
+		content: "";
+		display: block;
+		width: 2px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 25%;
+		background: rgba(250, 100, 0, 0.3);
+	}
+	.untransformed::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 2px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		background: rgba(250, 100, 0, 0.3);
+	}
+
 	/* Position */
 
 	.posholder {
@@ -373,6 +406,18 @@
 			<p class="box-shadows">This box has an inset shadow, visible before the text.</p>
 			<div class="box-shadows2">This box has a light orange shadow at the start and above the text. And a red shadow at the end and below the text.</div>
 		</li>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading"><h3 class="panel-title">Transform</h3></div>
+		<div class="panel-body">
+			<p><code>transform: translate( 25%, 50% );</code></p>
+			<div class="well p-float untransformed">
+			Original
+			</div>
+			<div class="well p-float transformed">
+			Transformed<br>(25% towards end of line, 50% toward end of page)
+			</div>
 		</div>
 	</div>
 	<div class="panel panel-default">
