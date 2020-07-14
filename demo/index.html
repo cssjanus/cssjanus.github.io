@@ -319,9 +319,6 @@
 		text-align: center;
 	}
 </style>
-<script src="../lib/es5-shim.js"></script>
-<script>exports = {}; function require() { return exports; }</script>
-<script src="../lib/cssjanus.js"></script>
 </head>
 <div class="container">
 	<div class="page-header">
@@ -472,10 +469,12 @@
 		<p><a href="../">Flip service</a> · <a href="https://github.com/cssjanus/cssjanus.github.io/blob/master/demo/index.html">Source code of this page</a></p>
 	</div>
 </footer>
+<!-- es5-shim for old IE -->
+<script src="../lib/es5-shim.js"></script>
+<script src="../lib/cssjanus.js"></script>
 <script>
 ( function () {
 	var activeBtn,
-		cssjanus = require(),
 		buttons = document.getElementsByTagName( 'button' ),
 		cssElem = document.getElementById( 'css' ),
 		css = cssElem.firstChild.nodeValue;
